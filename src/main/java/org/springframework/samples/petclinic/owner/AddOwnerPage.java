@@ -10,23 +10,17 @@ import java.time.Duration;
 public class AddOwnerPage extends PetClinicPageObject {
 
 	public AddOwnerPage(WebDriver driver) {
-
 		super(driver);
-
 	}
 
 	@Override
-
 	public void isReady() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("add-owner-form")));
+	}
 
-		wait.until(
-
-			ExpectedConditions.visibilityOfElementLocated(
-
-				By.id("add-owner-form")));
-
+	public void visit() {
+		visit("/owners/new");
 	}
 
 	public OwnerInformationPage add(AddOwnerInfo ownerToBeAdded) {
@@ -59,11 +53,12 @@ public class AddOwnerPage extends PetClinicPageObject {
 
 		OwnerInformationPage ownerInformationPage =
 
-			new OwnerInformationPage(driver);
+				new OwnerInformationPage(driver);
 
 		ownerInformationPage.isReady();
 
 		return ownerInformationPage;
 
 	}
+
 }

@@ -1,9 +1,9 @@
 package org.springframework.samples.petclinic.owner;
 
-
 import org.openqa.selenium.WebDriver;
 
 public abstract class PetClinicPageObject {
+
 	protected final WebDriver driver;
 
 	public PetClinicPageObject(WebDriver driver) {
@@ -15,9 +15,10 @@ public abstract class PetClinicPageObject {
 	}
 
 	protected void visit(String url) {
-		driver.get("http:/ /localhost:8080" + url);
+		driver.get("http://localhost:8080" + url);
 		isReady();
 	}
 
 	public abstract void isReady();
+
 }

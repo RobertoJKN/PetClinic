@@ -17,17 +17,15 @@ public class ListOfOwnersPage extends PetClinicPageObject {
 	}
 
 	@Override
-
 	public void isReady() {
 
-		WebDriverWait wait = new WebDriverWait (driver, Duration.ofSeconds(3));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 
 		wait.until(
 
-			ExpectedConditions.visibilityOfElementLocated(
+				ExpectedConditions.visibilityOfElementLocated(
 
-				By.id("owners")));
-
+						By.id("owners")));
 	}
 
 	public List<OwnerInfo> all() {
@@ -38,7 +36,8 @@ public class ListOfOwnersPage extends PetClinicPageObject {
 
 		List<WebElement> rows = table.findElement(By.tagName(
 
-			"tbody")).findElements(By.tagName("tr"));
+				"tbody"))
+			.findElements(By.tagName("tr"));
 
 		for (WebElement row : rows) {
 

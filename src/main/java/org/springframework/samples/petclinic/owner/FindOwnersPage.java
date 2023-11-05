@@ -1,11 +1,11 @@
 package org.springframework.samples.petclinic.owner;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class FindOwnersPage extends PetClinicPageObject{
+public class FindOwnersPage extends PetClinicPageObject {
+
 	@Override
 	public void isReady() {
 
@@ -13,6 +13,10 @@ public class FindOwnersPage extends PetClinicPageObject{
 
 	public FindOwnersPage(WebDriver driver) {
 		super(driver);
+	}
+
+	public void visit() {
+		visit("/owners/find");
 	}
 
 	public ListOfOwnersPage findOwners(String ownerLastName) {
@@ -27,11 +31,12 @@ public class FindOwnersPage extends PetClinicPageObject{
 
 		findOwnerButton.click();
 
-		ListOfOwnersPage listOfOwnersPage=new ListOfOwnersPage(driver);
+		ListOfOwnersPage listOfOwnersPage = new ListOfOwnersPage(driver);
 
 		listOfOwnersPage.isReady();
 
 		return listOfOwnersPage;
 
 	}
+
 }
